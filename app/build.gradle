@@ -22,6 +22,15 @@ android {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
             }
         }
+
+        signingConfigs {
+            release{
+                keyAlias = 'rm'
+                keyPassword = 'ronny123'
+                storeFile file("tvbox.jks")
+                storePassword = 'ronny123'
+            }
+        }
     }
 
     packagingOptions {
@@ -35,6 +44,7 @@ android {
             ndk {
                 abiFilters 'armeabi-v7a'                
             }
+            signingConfig signingConfigs.release
         }
     }
 
